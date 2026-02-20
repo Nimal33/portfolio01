@@ -44,7 +44,7 @@ h6,
 /* Utilities */
 .text-gradient {
     background: var(--gradient);
-    -webkit-background-clip: text;
+    /* -webkit-background-clip: text; */
     -webkit-text-fill-color: transparent;
 }
 
@@ -192,4 +192,5 @@ h6,
 
 .service-card:hover .service-icon {
     transform: scale(1.1) rotate(5deg);
+
 }
