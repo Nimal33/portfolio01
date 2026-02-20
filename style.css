@@ -1,0 +1,195 @@
+:root {
+    --primary-color: #6a11cb;
+    --secondary-color: #2575fc;
+    --accent-color: #ff0080;
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --gradient: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar-brand {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Utilities */
+.text-gradient {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-bg {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    transition: background-color 0.3s ease;
+}
+
+.nav-link {
+    color: var(--text-color) !important;
+    font-weight: 500;
+    margin: 0 10px;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: var(--gradient);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Add more styles here */
+
+/* Skills Section */
+.progress {
+    background-color: #e9ecef;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+    background: var(--gradient);
+    /* Default gradient */
+    transition: width 1.5s ease-in-out;
+}
+
+/* Custom colors for progress bars can be overridden via utility classes if needed, 
+   but maintaining a consistent look with the theme is better. 
+   I'll make them all use the primary gradient for consistency, or specific colors. */
+
+.progress-bar.bg-info {
+    background: #17a2b8;
+}
+
+.progress-bar.bg-warning {
+    background: #ffc107;
+}
+
+.progress-bar.bg-success {
+    background: #28a745;
+}
+
+.progress-bar.bg-danger {
+    background: #dc3545;
+}
+
+.progress-bar.bg-dark {
+    background: #343a40;
+}
+
+/* Portfolio Section */
+.portfolio-card {
+    background-color: var(--card-bg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-img-container {
+    height: 100%;
+    min-height: 250px;
+    /* Ensure height on mobile if stacked, or maintain height */
+}
+
+.portfolio-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-card:hover .portfolio-img-container img {
+    transform: scale(1.1);
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-card:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .portfolio-img-container {
+        height: 200px;
+    }
+}
+
+/* Services Section */
+.service-card {
+    background-color: var(--card-bg);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow);
+}
+
+.service-icon {
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.1) rotate(5deg);
+}
